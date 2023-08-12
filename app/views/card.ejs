@@ -1,0 +1,41 @@
+<style>
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        width: 250px;
+        text-align: center;
+      }
+      
+      .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      }
+      
+      .container {
+        padding: 2px 16px;
+      }
+</style>
+
+<div style="display: flex; flex-wrap : wrap" class="main-card">
+<% for(var i=0; i<user.length; i++) {%>
+<div class="card" id = <%= user[i].id%> onclick = "location.href = '/movie-page?id='+<%= user[i].id%>;">
+    <img src=<%=user[i].movie_poster%> alt="Avatar" style="width:90%">
+    <div class="container">
+      <h3><b><%= user[i].title%></b></h3> 
+      <p><%= user[i].type%></p> 
+    </div>
+</div>
+<% } %>
+</div>
+
+<!-- <div style="display: flex;" class="main-card">
+<% for(var i=0; i<user.length; i++) {%>
+  <div style="display: flex;" class="card">
+        <img src=<%=user[i].movie_poster%> alt="Avatar" style="width:90%">
+        <div class="container">
+          <h3><b><%= user[i].title%></b></h3> 
+          <p><%= user[i].type%></p> 
+        </div>
+    </div>
+   
+ <% } %>
+</div> -->

@@ -1,0 +1,63 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model movie_master {
+  id           Int            @id @default(autoincrement())
+  title        String?        @db.VarChar(500)
+  type         String?        @db.VarChar(500)
+  release_date String?        @db.VarChar(255)
+  director     String?        @db.VarChar(255)
+  budget       String?        @db.VarChar(255)
+  story_line   String?        @db.VarChar(900)
+  cast_name    String?        @db.VarChar(500)
+  trailer_link String?        @db.VarChar(500)
+  movie_poster String?        @db.VarChar
+  cast_details cast_details[]
+}
+
+model cast_details {
+  id           Int           @id @default(autoincrement())
+  ref_id       Int?
+  cast_name    String?       @db.VarChar(255)
+  role_name    String?       @db.VarChar(255)
+  profile_img  String?       @db.VarChar(900)
+  movie_master movie_master? @relation(fields: [ref_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  title     String   @db.VarChar(255)
+  createdAt DateTime @default(now()) @db.Timestamp(6)
+  content   String?
+  published Boolean  @default(false)
+  authorId  Int
+  user      User     @relation(fields: [authorId], references: [id])
+  tags      Tag[]    @relation("PostToTag")
+}
+
+model Profile {
+  id     Int     @id @default(autoincrement())
+  bio    String?
+  userId Int     @unique
+  user   User    @relation(fields: [userId], references: [id])
+}
+
+model User {
+  id      Int      @id @default(autoincrement())
+  name    String?  @db.VarChar(255)
+  email   String   @unique @db.VarChar(255)
+  post    Post[]
+  profile Profile?
+}
+
+model Tag {
+  id    Int    @id @default(autoincrement())
+  name  String
+  posts Post[] @relation("PostToTag")
+}

@@ -1,0 +1,1218 @@
+<style>
+body {
+    background-image: url("https://img.freepik.com/free-photo/smoke-background-texture-white-abstract-design_53876-128269.jpg?w=2000");
+    &.modal-active {
+      overflow: hidden;
+    }
+} 
+
+
+.card {
+    display: flexbox;
+    padding: 30px 40px;
+    height: 110%;
+    background-color: white;
+    width: 50%;
+    margin: 30px 0 0 390px;
+    border: none !important;
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2);
+    transition: all 0.7s ease-in-out;
+    border-radius: 25px;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+input[type=text] {
+	appearance: none;
+    border: none;
+    outline: none;
+    height: 0px;
+    width: 435px;
+    background: whitesmoke;
+    border-bottom: 0.2em solid #E91E63;
+    background: rgba(#E91E63, .2);
+    border-radius: 0.2em 0.2em 0 0;
+    padding: 1.4em;
+    color: #E91E63;
+    -webkit-transition: all ease-in-out .15s;
+  -o-transition: all ease-in-out .15s;
+  transition: all ease-in-out .15s;
+}
+
+input[type=text]:hover {
+	background-color: whitesmoke;
+    border-bottom: 0.2em solid #000000;
+}
+
+input[type=text]:active {
+	background-color: whitesmoke;
+    border-bottom: 0.2em solid #000000;
+}
+
+
+#title {
+    position: relative;
+    width: 100%;
+}
+
+#type {
+    width:332px;
+    appearance: none;
+    border: none;
+    outline: none;
+    height: 0px;
+    background: whitesmoke;
+    border-bottom: 0.2em solid #E91E63;
+    background: rgba(#E91E63, .2);
+    border-radius: 0.2em 0.2em 0 0;
+    padding: 18px;
+    color: #080808;
+}
+
+
+#cast {
+    width: 100%;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+#director {
+    width: 100%;
+}
+
+#budget {
+    width: 100%;
+}
+
+#release_date {
+    width: 100%;
+}
+
+#trailer {
+    width: 100%;
+}
+
+#poster {
+  width: 100%;
+}
+
+#story {
+    width: 100%;
+    appearance: none;
+    border: none;
+    outline: none;
+    height: 0px;
+    background: whitesmoke;
+    border-bottom: 0.2em solid #E91E63;
+    background: rgba(#E91E63, .2);
+    border-radius: 0.2em 0.2em 0 0;
+    padding: 1.4em;
+    color: #E91E63;
+}
+
+
+.type-cast-div {
+    padding: 10px 0px;
+}
+
+.cast-div {
+  margin: -58px 0px 0px 337px
+}
+
+.release-date-div {
+    padding: 10px 0px;
+}
+
+.director-div {
+    padding: 10px 0px;
+}
+
+.budget-div {
+    padding: 10px 0px;
+}
+
+.story-div {
+    padding: 10px 0px;
+}
+
+.trailer-div {
+    padding: 10px 0px;
+}
+
+.moviePoster-div {
+  padding: 10px 0px;
+}
+
+.castname-div {
+  padding: 10px 0px;
+}
+
+.add_movie_btn {
+    display: inline-block;
+    padding: 11px 42px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  height: 35px;
+  margin: 25px 0 0px 285px;
+  color: #fff;
+  background-color: #e91e63;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.add_cast_btn {
+  display: inline-block;
+  padding: 11px 42px;
+font-size: 16px;
+font-weight: bold;
+cursor: pointer;
+text-align: center;
+text-decoration: none;
+outline: none;
+height: 35px;
+margin: 25px 0 0px 285px;
+color: #fff;
+background-color: #e91e63;
+border: none;
+border-radius: 15px;
+box-shadow: 0 9px #999;
+}
+
+.add_movie_btn:hover {background-color: #ba0909}
+
+.add_cast_btn:hover {background-color: #ba0909}
+
+.add_movie_btn:active {
+  background-color: #7e877e;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.add_cast_btn:active {
+  background-color: #7e877e;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+label {
+    margin: 0 0 0 5px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#add_movie_label {
+  font-size: 45px;
+  position: relative;
+  font-family: none;
+  font-weight: bold;
+  top: 3%;
+  color: #e91e63;
+  margin: 0 0 0 660px;
+}
+
+
+
+
+
+
+.multiselect {
+    width: 200px;
+  }
+  
+  .selectBox {
+    position: relative;
+  }
+  
+  .selectBox select {
+    width: 100%;
+    font-weight: bold;
+  }
+  
+  .overSelect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  
+  #checkboxes {
+    display: none;
+    border: 1px #dadada solid;
+    width: 308px;
+    position: absolute;
+    z-index: 1000;
+    background: white;
+  }
+  
+  #checkboxes label {
+    display: block;
+  }
+  
+  #checkboxes label:hover {
+    background-color: #1e90ff;
+  }
+
+  #img {
+    height: 14px;
+    margin: -22px 1px 0px 284px;
+  }
+
+  .multiselect-container>li>a>label {
+    padding: 4px 20px 3px 20px;
+  }
+
+  .multiselect {
+    width: 335px;
+    margin: -16px 0 0 -16px;
+    height: 34px;
+    border: none;
+    background: whitesmoke;
+
+    
+}
+
+  .multiselect-container {
+    position: absolute;
+    list-style-type: none;
+    background: white;
+    z-index: 1000;
+    margin: 2px 0px 0px -45px!important;
+    display: none;
+    padding: 0px 0;
+    width: 360px;
+}
+
+
+
+* {
+  box-sizing:border-box;
+}
+
+
+#modal-container {
+  position:fixed;
+  display:table;
+  height:100%;
+  width:100%;
+  top:0;
+  left:0;
+  transform:scale(0);
+  z-index:1;
+  &.one {
+    transform:scaleY(.01) scaleX(0);
+    animation:unfoldIn 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+    .modal-background {
+      .modal {
+        transform:scale(0);
+        animation: zoomIn .5s .8s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+      }
+    }
+    &.out {
+      transform:scale(1);
+      animation:unfoldOut 1s .3s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+      .modal-background {
+        .modal {
+          animation: zoomOut .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+        }
+      }
+    }
+  }
+  &.two {
+    transform:scale(1);
+    .modal-background {
+      background:rgba(0,0,0,.0);
+      animation: fadeIn .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+      .modal {
+        opacity:0;
+        animation: scaleUp .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+      }
+    }
+    + .content {
+      animation: scaleBack .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+    }
+    &.out {
+      animation: quickScaleDown 0s .5s linear forwards;
+      .modal-background {
+        animation: fadeOut .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+        .modal {
+           animation: scaleDown .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+        }
+      }
+      + .content {
+        animation: scaleForward .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+      }
+    }
+  }
+  &.three {
+    z-index:0;
+    transform:scale(1);
+    .modal-background {
+      background:rgba(0,0,0,.6);
+      .modal {
+        animation: moveUp .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+      }
+    }
+    + .content {
+      z-index:1;
+      animation: slideUpLarge .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+    }
+    &.out {
+      .modal-background {
+        .modal {
+          animation: moveDown .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+        }
+      }
+      + .content {
+        animation: slideDownLarge .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+      }
+    }
+  }
+  &.cast {
+    z-index:0;
+    transform:scale(1);
+    .modal-background {
+      background:rgba(0,0,0,.7);
+      .modal {
+        animation: blowUpModal .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+      }
+    }
+    + .content {
+      z-index:1;
+      animation:blowUpContent .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+    }
+    &.out { 
+      transform:scale(1);
+      animation:unfoldOut 1s .1s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+      .modal-background {
+        .modal {
+          animation: blowUpModalTwo .4s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+        }
+      }
+    }
+  }
+  &.five {
+    transform:scale(1);
+    .modal-background {
+      background:rgba(0,0,0,.0);
+      animation: fadeIn .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+      .modal {
+        transform:translateX(-1500px);
+        animation: roadRunnerIn .3s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+      }
+    }
+    &.out {
+      animation: quickScaleDown 0s .5s linear forwards;
+      .modal-background {
+        animation: fadeOut .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+        .modal {
+          animation: roadRunnerOut .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+        }
+      }
+    }
+  }
+  &.six {
+    transform:scale(1);
+    .modal-background {
+      background:rgba(0,0,0,.0);
+      animation: fadeIn .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+      .modal {
+        background-color:transparent;
+        animation: modalFadeIn .5s .8s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+        h2,p {
+          opacity:0;
+          position:relative;
+          animation: modalContentFadeIn .5s 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+        }
+        .modal-svg {
+          rect {
+            animation: sketchIn .5s .3s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+          }
+        }
+      }
+    }
+    &.out {
+      animation: quickScaleDown 0s .5s linear forwards;
+      .modal-background {
+        animation: fadeOut .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+        .modal {
+          animation: modalFadeOut .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+          h2,p {
+            animation: modalContentFadeOut .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+          }
+          .modal-svg {
+            rect {
+              animation: sketchOut .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+            }
+          }
+        }
+      }
+    }
+  }
+  &.seven {
+    transform:scale(1);
+    .modal-background {
+      background:rgba(0,0,0,.0);
+      animation: fadeIn .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+      .modal {
+        height:75px;
+        width:75px;
+        border-radius:75px;
+        overflow:hidden;
+        animation: bondJamesBond 1.5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+        h2,p {
+          opacity:0;
+          position:relative;
+          animation: modalContentFadeIn .5s 1.4s linear forwards;
+        }
+      }
+    }
+    &.out {
+      animation: slowFade .5s 1.5s linear forwards;
+      .modal-background {
+        background-color:rgba(0,0,0,.7);
+        animation: fadeToRed 2s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+        .modal {
+          border-radius:3px;
+          height:162px;
+          width:227px;
+          animation: killShot 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+          h2,p {
+            animation:modalContentFadeOut .5s .5 cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+          }
+        }
+      }
+    }
+  }
+  .modal-background {
+    display:table-cell;
+    background:rgba(0,0,0,.8);
+    text-align:center;
+    vertical-align:middle;
+    .modal {
+      background:white;
+      padding:50px;
+      display:inline-block;
+      border-radius:3px;
+      font-weight:300;
+      position:relative;
+      height: 404px;
+      h2 {
+        font-size:25px;
+        line-height:25px;
+        margin-bottom:15px;
+      }
+      p {
+        font-size:18px;
+        line-height:22px;
+      }
+      .modal-svg {
+        position:absolute;
+        top:0;
+        left:0;
+        height:100%;
+        width:100%;
+        border-radius:3px;
+        rect {
+          stroke: #fff;
+          stroke-width: 2px;
+          stroke-dasharray: 778;
+          stroke-dashoffset: 778;
+        }
+      }
+    }
+  }
+}
+
+.content {
+  min-height:100%;
+  height:100%;
+  background:white;
+  position:relative;
+  z-index:0;
+  h1 {
+    padding:75px 0 30px 0;
+    text-align:center;
+    font-size:30px;
+    line-height:30px;
+  }
+  .buttons {
+    max-width:800px;
+    margin:0 auto;
+    padding:0;
+    text-align:center;
+    .button {
+      display:inline-block;
+      text-align:center;
+      padding:10px 15px;
+      margin:10px;
+      background:red;
+      font-size:18px;
+      background-color:#efefef;
+      border-radius:3px;
+      box-shadow:0 1px 2px rgba(0,0,0,.3);
+      cursor:pointer;
+      &:hover {
+        color:white;
+        background:#009bd5;
+      }
+    }
+  } 
+}
+
+@keyframes unfoldIn {
+  0% {
+    transform:scaleY(.005) scaleX(0);
+  }
+  50% {
+    transform:scaleY(.005) scaleX(1);
+  }
+  100% {
+    transform:scaleY(1) scaleX(1);
+  }
+}
+
+@keyframes unfoldOut {
+  0% {
+    transform:scaleY(1) scaleX(1);
+  }
+  50% {
+    transform:scaleY(.005) scaleX(1);
+  }
+  100% {
+    transform:scaleY(.005) scaleX(0);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform:scale(0);
+  }
+  100% {
+    transform:scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform:scale(1);
+  }
+  100% {
+    transform:scale(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    background:rgba(0,0,0,.0);
+  }
+  100% {
+    background:rgba(0,0,0,.7);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    background:rgba(0,0,0,.7);
+  }
+  100% {
+    background:rgba(0,0,0,.0);
+  }
+}
+
+@keyframes scaleUp {
+  0% {
+    transform:scale(.8) translateY(1000px);
+    opacity:0;
+  }
+  100% {
+    transform:scale(1) translateY(0px);
+    opacity:1;
+  }
+}
+
+@keyframes scaleDown {
+  0% {
+    transform:scale(1) translateY(0px);
+    opacity:1;
+  }
+  100% {
+    transform:scale(.8) translateY(1000px);
+    opacity:0;
+  }
+}
+
+@keyframes scaleBack {
+  0% {
+    transform:scale(1);
+  }
+  100% {
+    transform:scale(.85);
+  }
+}
+
+@keyframes scaleForward {
+  0% {
+    transform:scale(.85);
+  }
+  100% {
+    transform:scale(1);
+  }
+}
+
+@keyframes quickScaleDown {
+  0% {
+    transform:scale(1);
+  }
+  99.9% {
+    transform:scale(1);
+  }
+  100% {
+    transform:scale(0);
+  }
+}
+
+@keyframes slideUpLarge {
+  0% {
+    transform:translateY(0%);
+  }
+  100% {
+    transform:translateY(-100%);
+  }
+}
+
+@keyframes slideDownLarge {
+  0% {
+    transform:translateY(-100%);
+  }
+  100% {
+    transform:translateY(0%);
+  }
+}
+
+@keyframes moveUp {
+  0% {
+    transform:translateY(150px);
+  }
+  100% {
+    transform:translateY(0);
+  }
+}
+
+@keyframes moveDown {
+  0% {
+    transform:translateY(0px);
+  }
+  100% {
+    transform:translateY(150px);
+  }
+}
+
+@keyframes blowUpContent {
+  0% {
+    transform:scale(1);
+    opacity:1;
+  }
+  99.9% {
+    transform:scale(2);
+    opacity:0;
+  }
+  100% {
+    transform:scale(0);
+  }
+}
+
+@keyframes blowUpContentTwo {
+  0% {
+    transform:scale(2);
+    opacity:0;
+  }
+  100% {
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+@keyframes blowUpModal {
+  0% {
+    transform:scale(0);
+  }
+  100% {
+    transform:scale(1);
+  }
+}
+
+@keyframes blowUpModalTwo {
+  0% {
+    transform:scale(1);
+    opacity:1;
+  }
+  100% {
+    transform:scale(0);
+    opacity:0;
+  }
+}
+
+@keyframes roadRunnerIn {
+  0% {
+    transform:translateX(-1500px) skewX(30deg) scaleX(1.3);
+  }
+  70% {
+    transform:translateX(30px) skewX(0deg) scaleX(.9);
+  }
+  100% {
+    transform:translateX(0px) skewX(0deg) scaleX(1);
+  }
+}
+
+@keyframes roadRunnerOut {
+  0% {
+    transform:translateX(0px) skewX(0deg) scaleX(1);
+  }
+  30% {
+    transform:translateX(-30px) skewX(-5deg) scaleX(.9);
+  }
+  100% {
+    transform:translateX(1500px) skewX(30deg) scaleX(1.3);
+  }
+}
+
+@keyframes sketchIn {
+	0% {
+		stroke-dashoffset: 778;
+	}
+	100% {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes sketchOut {
+	0% {
+		stroke-dashoffset: 0;
+	}
+	100% {
+		stroke-dashoffset: 778;
+	}
+}
+
+@keyframes modalFadeIn {
+  0% {
+    background-color:transparent;
+  }
+  100% {
+    background-color:white;
+  }
+}
+
+@keyframes modalFadeOut {
+  0% {
+    background-color:white;
+  }
+  100% {
+    background-color:transparent;
+  }
+}
+
+@keyframes modalContentFadeIn {
+  0% {
+    opacity:0;
+    top:-20px;
+  }
+  100% {
+    opacity:1;
+    top:0;
+  }
+}
+
+@keyframes modalContentFadeOut {
+  0% {
+    opacity:1;
+    top:0px;
+  }
+  100% {
+    opacity:0;
+    top:-20px;
+  }
+}
+
+@keyframes bondJamesBond {
+  0% {
+    transform:translateX(1000px);
+  }
+  80% {
+    transform:translateX(0px);
+    border-radius:75px;
+    height:75px;
+    width:75px;
+  }
+  90% {
+    border-radius:3px;
+    height:182px;
+    width:247px;
+  }
+  100% {
+    border-radius:3px;
+    height:162px;
+    width:227px;
+  }
+}
+
+@keyframes killShot {
+  0% {
+    transform:translateY(0) rotate(0deg);
+    opacity:1;
+  }
+  100% {
+    transform:translateY(300px) rotate(45deg);
+    opacity:0;
+  }
+}
+
+@keyframes fadeToRed {
+  0% {
+    background-color:rgba(black,.6);
+  }
+  100% {
+    background-color:rgba(red,.8);
+  }
+}
+
+@keyframes slowFade {
+  0% {
+    opacity:1;
+  }
+  99.9% {
+    opacity:0;
+    transform:scale(1);
+  }
+  100% {
+    transform:scale(0);
+  }
+}
+
+#name_label {
+  margin: 0 0 0 -380px;
+}
+#role_label {
+  margin: 0 0 0 -334px;
+}
+#profile_label {
+  margin: 0 0 0 -293px;
+}
+.profile-div {
+  padding: 10px 0;
+}
+#cast_det {
+  font-family: 'Courier New', Courier, monospace;
+    margin: -10px 0 18px 0;
+    font-size: 22px;
+}
+#clo_img {
+  height: 11px;
+    margin: -1px 0 0 0px;
+    padding: 0 0;
+    z-index: 10000;
+    position: relative;
+}
+#clo_btn {
+  width: 33px;
+    height: 30px;
+    background-color: lightpink;
+    color: rgb(5, 5, 5);
+    border: none;
+    border-radius: 113px 115px;
+    margin: -64px 0 0 401px;
+    box-shadow: 1px 0px 3px 1px;
+}
+#plusIcon {
+  font-size: 16px;
+    margin: -26px 0 0 0px;
+    left: 91%;
+    position: relative;
+    z-index: 100;
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://unpkg.com/bootstrap-multiselect@0.9.13/dist/js/bootstrap-multiselect.js"></script>
+<link href="https://unpkg.com/bootstrap-multiselect@0.9.13/dist/css/bootstrap-multiselect.css" rel="stylesheet"/>
+
+<label id = "add_movie_label">Add Movie</label>
+<div class = "card">
+<!-- <form action = "/" method = "post"> -->
+    <div class = "title-div">   
+        <label>Title:</label><br> 
+        <input type="text" name = "Title" id = "title"/>   
+    </div>
+    
+    <div class = "type-cast-div">
+    
+        <div class = "type-div">
+
+            <!-- <label>Type:</label><br> 
+            <input type="text" name = "Type" id = "type"/> -->
+
+            <label>Type:</label><br> 
+              <div  id = "type">
+
+                <select id="chkveg" multiple="multiple" id = "type">
+                  <option value="action">Action</option>
+                  <option value="thriller">Thriller</option>
+                  <option value="adventure">Adventure</option>
+                  <option value="horror">Horror</option>
+                  <option value="sci-fi">Sci-fi</option>
+                  <option value="fantasy">Fantasy</option>
+                </select><img src = "https://cdn-icons-png.flaticon.com/512/58/58979.png" id = "img">
+                
+                <br/><br />
+            
+               
+              </div>
+
+
+        </div>
+
+        <div class = "cast-div">
+            <label>Cast:</label><br>
+        <div><input type="text" name = "Cast" id="cast" class="button"/><i class="fa fa-plus" id="plusIcon"></i></div>
+        </div> 
+      
+    </div>
+    
+    <div class = "release-date-div">
+        <label>Release Date:</label><br>
+        <input type="text" name = "ReleaseDate" id = "release_date"/>
+    </div>
+    
+    <div class = "director-div">
+        <label>Director:</label><br>
+        <input type="text" name = "Director" id = "director"/>
+    </div>
+    
+    <div class = "budget-div">
+        <label>Budget:</label><br>
+        <input type="text" name = "Budget" id = "budget"/>
+    </div>
+    
+    <div class = "story-div">
+        <label>Story:</label><br>
+        <textarea type="text" name = "Story" id = "story"></textarea>
+    </div>
+    
+    <div class = "trailer-div">
+        <label>Trailer:</label><br>
+        <input type="text" name = "Trailer" id = "trailer"/>
+    </div>
+
+    <div class = "moviePoster-div">
+      <label>Poster:</label><br>
+      <input type="text" name = "Poster" id = "poster"/>
+  </div>
+    
+    <button type = "submit" class="add_movie_btn">Add</button>
+<!-- </form> -->
+
+
+</div>
+
+<div id="modal-container">
+  <div class="modal-background">
+    <div class="modal">
+    <h3 id = "cast_det">Cast Details</h3><button id = "clo_btn"><img src = "https://cdn-icons-png.flaticon.com/512/57/57165.png" id = "clo_img"></button>
+      
+            <div class = "castname-div">   
+                <label class = "modalLabel" id = "name_label">Name:</label><br> 
+                <input type="text" name = "cast_name" id = "cast_name"/>
+            </div>
+
+            <div class = "role-div">
+                <label class = "modalLabel" id = "role_label">Role Name:</label><br>
+                <input type="text" name = "role" id="role_name"/>
+            </div> 
+
+            <div class = "profile-div">
+              <label class = "modalLabel" id = "profile_label">Profile Image:</label><br>
+              <input type="text" name = "profile" id="profile"/>
+          </div> 
+              
+         
+            
+            <button type = "submit" class="add_cast_btn">Add</button>
+
+        
+        
+        </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+  const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+  $('.button').click(function(){
+    var buttonId = $(this).attr('id');
+    $('#modal-container').removeAttr('class').addClass(buttonId);
+    $('body').addClass('modal-active');
+  })
+  
+  $('#modal-container').click(function(){
+   
+  });
+
+  $("#clo_btn").click(function(){
+    console.log("Clicked");
+    $("#modal-container").addClass('out');
+    $('body').removeClass('modal-active');
+  });
+   
+
+
+    $("#cast").on("click",function(e) {
+        console.log("Sameer:::::::::>");
+        $(".multiselect-container").css("display","none");
+    });
+
+    $(".multiselect-selected-text").html(`Select Type`);
+
+    $('#chkveg').multiselect({
+        includeSelectAllOption: true
+      });
+    
+      $('#btnget').click(function() {
+        alert($('#chkveg').val());
+      });
+
+      $(".multiselect").on("click",function(){
+
+        $(".multiselect-container").toggle();
+        console.log("Select:::::>");
+      })
+
+    $("#img").on("click",function() {
+      console.log("Sam");
+      $(".multiselect-container").toggle();
+    })
+
+
+    $(".add_movie_btn").on("click",function(){
+      console.log("Clicked:::::::::::::<");
+
+      var typ = $('#chkveg').val();
+      var t = typ[0];
+
+      for(var i=1 ; i<typ.length ; i++) {
+        console.log("Sameer");
+        t += ","+ typ[i];
+      }
+      
+      console.log("Date:::::>",$("#poster").val());
+
+      const movieObj = {
+        "title" : $("#title").val(),
+        "type" : t,
+        "release_date" : $("#release_date").val(),
+        "director" : $("#director").val(),
+        "budget" : $("#budget").val(),
+        "story_line" : $("#story").val(),
+        "cast" : $("#cast").val(),
+        "trailer_link" : $("#trailer").val(),
+        "movie_poster" : $("#poster").val(),
+        } 
+
+    console.log(movieObj);
+    console.log("ARRRRRRRRRR::::::::>",arr);
+  
+   $.ajax({
+        type: "POST",
+        url: "/",
+        data: {
+            movieObj : JSON.stringify(movieObj),
+            arr : JSON.stringify(arr),
+        },
+        success: function (response) {
+            console.log("Response:::::::::>",response);
+            Swal.fire(
+                'Success!',
+                'Movie Added!',
+                'success'
+              )
+        },
+        
+        error: function (error) {
+            console.log('error::::::::::::::::>>',error)
+        }
+    
+    }); 
+    })
+
+    var expanded = false;
+
+    function showCheckboxes() {
+    var checkboxes = document.getElementById("checkboxes");
+    if (!expanded) {
+        checkboxes.style.display = "block";
+        expanded = true;
+    } else {
+        checkboxes.style.display = "none";
+        expanded = false;
+    }
+    }
+
+    $("#plusIcon").on("click",function() {
+      
+      var buttonId = $(".button").attr('id');
+    $('#modal-container').removeAttr('class').addClass(buttonId);
+    $('body').addClass('modal-active');
+    })
+
+    let arr = new Array();
+
+   $(".add_cast_btn").on("click", function() {
+
+    var cast_name = $("#cast_name").val();
+    var role_name = $("#role_name").val();
+    var profile = $("#profile").val();
+
+    console.log("Cast name =",cast_name);
+    console.log("role name =",role_name);
+    console.log("profile name =",profile);
+
+    var obj = {
+      cast_name : cast_name,
+      role_name: role_name,
+      profile: profile,
+    };
+
+ 
+
+    arr.push(obj);
+
+    var cas_nam = arr[0].cast_name;
+
+    for(var i = 1 ; i< arr.length ; i++) {
+      cas_nam += "," + arr[i].cast_name;
+    }
+
+    console.log("nammmm::>",cas_nam);
+
+    $("#cast").val(cas_nam);
+
+    console.log("Array:::::::>",arr);
+
+    $("#modal-container").addClass('out');
+    $('body').removeClass('modal-active');
+
+    Swal.fire(
+      'Success!',
+      'Cast Added!',
+      'success'
+    )
+    
+   })
+</script>

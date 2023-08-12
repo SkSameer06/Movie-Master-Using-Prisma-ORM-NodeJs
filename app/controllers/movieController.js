@@ -1,45 +1,64 @@
 var express = require("express");
 const movieDao = require("../models/movieDao");
 
+
 module.exports = {
+
+    form: function (req, res) {
+        res.render("form");
+    },
 
     addMovie: function (req, res) {
 
-        // console.log(req.body.title);
-        // console.log(req.body.type);
-        // console.log(req.body.release_date);
-        // console.log(req.body.director);
-        // console.log(req.body.budget);
-        // console.log(req.body.story_line);
-        // console.log(req.body.cast);
-        // console.log(req.body.trailer_link);
+        const movieObj = JSON.parse(req.body.movieObj);
+        const arr = JSON.parse(req.body.arr);
 
-        const  title = "variable";
-        const type = "variable";
-        const release_date = "variable";
-        const director = "variable";
-        const budget = "variable";
-        const story_line = "variable";
-        const cast = "variable";
-        const trailer_link = "variable";
+        console.log("Date:::::::::::::>",arr)
+        
+        movieDao.main(movieObj).then(function(result) {
+            
+            console.log("All Movies:::::::>",result.id);
 
-        const movieObj = {
-            "title" : title,
-            "type" : type,
-            "release_date" : release_date,
-            "director" : director,
-            "budget" : budget,
-            "story_line" : story_line,
-            "cast" : cast,
-            "trailer_link" : trailer_link,
-        }
-        console.log(movieObj.title);
+            movieDao.cast_det(arr, result.id);
+           
+         });
 
-        movieDao.addmovies(movieObj);
+        res.json("Sameer");
 
-        res.json("JavaScript");
+    },
 
+    showCards: (req, res) => {
+        movieDao.allMovie().then(function(result) {
+            // const user = result[0];
+            console.log("All Movies:::::::>",result[0]);
+            res.render("card",{user: result});
+         });
+        
+        
+    },
 
+    showMovie: (req, res) => {
+        
+           
+         console.log("DAte::::::::::>",req.query.id);
+         const id = req.query.id;
+         let cast_list;
+         
+         movieDao.singleMovie(id).then(function(result) {
+            console.log("single Movies:::::::>",result);
+
+            movieDao.movieCast(id).then(function(result1) {
+                console.log("single cast:::::::>",result1);
+                res.render("movie-page",{user: result, cast_list: result1});
+             });
+
+            
+         });
+
+         
+         
+        
+        
     },
 
 }

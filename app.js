@@ -3,14 +3,20 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+const bodyParser = require('body-parser');
 var movieRouter = require('./app/routers/movieRouter');
 
 var app = express();
 
+//app.use(bodyParser.json());
+
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('views', path.join("/home/dell/MovieMasterApp/MovieMaster/app/", 'views'));
+app.set('view engine', 'ejs');
+app.set('view options', {
+  layout: false
+});
+
 
 app.use(logger('dev'));
 app.use(express.json());

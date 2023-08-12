@@ -1,0 +1,47 @@
+<style>
+body {
+    background-color: black;
+}
+h1 {
+    color: black;
+}
+.card {
+    background-color: white;
+}
+.p_img {
+    width: 427%;
+    height: 109px;
+    border-radius: 72%;
+}
+.cast-details-div {
+    display: table-caption;
+}
+</style>
+
+<div class = "card">
+    <h1><%= user.title%></h1>
+    <h1><%= user.type%></h1>
+    <img src=<%=user.movie_poster%> alt="Avatar" style="width:20%">
+    
+    
+    
+    
+    <div class = "cast-details-div">
+        <% for(var i=0; i<cast_list.length; i++) {%>
+            <div style="display: inline-flex;">
+                <img src = <%= cast_list[i].profile_img%> class = "p_img"/>
+                <div style="display: -webkit-inline-box;"><p style="margin: 29px 0 0 16px;
+                    width: 686%;"><%= cast_list[i].cast_name%><p style="position: relative;
+                    top: 42px;
+                    left: -685%;"><%= cast_list[i].role_name%></p></p><br>
+                </div>
+                
+                
+            </div>
+            
+                 
+            <% } %>
+    </div>
+
+</div>
+
